@@ -1,7 +1,11 @@
-import React from "react";
+import MovieList from "./components/MovieList";
 
 const App = () => {
-  return <div className="text-amber-950 bg-blue-600">App</div>;
+  return (
+    <div>
+      <MovieList />
+    </div>
+  );
 };
 
 export default App;
