@@ -1,9 +1,11 @@
 import MovieList from "./components/MovieList";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div>
-      <MovieList />
+    <div className="bg-zinc-950">
+      <Navbar />
+      {/* <MovieList /> */}
     </div>
   );
 };
