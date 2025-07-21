@@ -1,4 +1,9 @@
 import axios from "axios";
+import type { Movie } from "../types/movie";
+
+type TMDBResponse = {
+  results: Movie[];
+};
 
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3",
@@ -9,9 +14,6 @@ const api = axios.create({
 });
 
 export const getPopularMovies = async () => {
-  const {
-    data: { results },
-  } = await api.get("/movie/popular");
-  console.log(results);
-  return results;
+  const { data } = await api.get<TMDBResponse>("/movie/popular");
+  return data.results;
 };
