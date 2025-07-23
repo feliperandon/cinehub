@@ -8,7 +8,7 @@ const MovieCard = ({
   movie: { title, poster_path, release_date, vote_average },
 }: Props) => {
   return (
-    <div className="p-3 rounded-lg shadow-md text-white min-w-[200px] mb-1.5 hover:opacity-60">
+    <div className="p-3 rounded-lg shadow-md text-white min-w-[200px] mb-1.5 snap-start hover:opacity-60">
       <img
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt={title}

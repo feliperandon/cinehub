@@ -23,9 +23,9 @@ const MovieRow = ({ title, fetchFunction }: Props) => {
     fetchData();
   }, [fetchFunction]);
   return (
-    <div className="mb-6 mt-20 px-4 max-w-[1800px] ">
-      <h2 className="text-2xl font-bold mb-2">{title}</h2>
-      <div className="flex overflow-x-auto gap-4 pb-2">
+    <div className="mb-6 px-4 w-full ">
+      <h2 className="text-2xl font-bold mb-2 pl-2">{title}</h2>
+      <div className="flex overflow-x-auto gap-4 pb-2 snap-x snap-mandatory">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}

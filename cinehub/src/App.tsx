@@ -5,10 +5,10 @@ import { getPopularMovies } from "./services/tmdb";
 
 const App = () => {
   return (
-    <div className="bg-zinc-950 text-white min-h-screen overflow-hidden">
+    <div className="bg-zinc-950 text-white min-h-screen overflow-hidden ">
       <Navbar />
       <Hero />
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center ">
         <MovieRow title="Popular" fetchFunction={getPopularMovies} />
         <MovieRow title="Top Rated" fetchFunction={getPopularMovies} />{" "}
         {/* teste */}

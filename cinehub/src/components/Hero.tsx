@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-20">
       <img
         src="src/assets/banner.jpg"
         alt="banner"
