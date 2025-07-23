@@ -18,7 +18,7 @@ const MovieCard = ({
         {title}
       </h2>
       <p className="text-sm text-zinc-400">Release Date: {release_date}</p>
-      <p className="text-sm">Average Vote: {vote_average}</p>
+      <p className="text-sm">Average Vote: {vote_average.toFixed(1)}</p>
     </div>
   );
 };
