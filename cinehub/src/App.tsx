@@ -1,7 +1,7 @@
 import Hero from "./components/Hero";
 import MovieRow from "./components/MovieRow";
 import Navbar from "./components/Navbar";
-import { getPopularMovies } from "./services/tmdb";
+import { getPopularMovies, getTopRatedMovies } from "./services/tmdb";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <Hero />
       <div className="flex flex-col items-center ">
         <MovieRow title="Popular" fetchFunction={getPopularMovies} />
-        <MovieRow title="Top Rated" fetchFunction={getPopularMovies} />{" "}
+        <MovieRow title="Top Rated" fetchFunction={getTopRatedMovies} />{" "}
         {/* teste */}
       </div>
     </div>

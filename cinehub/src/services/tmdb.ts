@@ -17,3 +17,8 @@ export const getPopularMovies = async () => {
   const { data } = await api.get<TMDBResponse>("/movie/popular");
   return data.results;
 };
+
+export const getTopRatedMovies = async () => {
+  const { data } = await api.get<TMDBResponse>("/movie/top_rated");
+  return data.results;
+};
