@@ -1,20 +1,25 @@
-import Hero from "./components/Hero";
-import MovieRow from "./components/MovieRow";
+// Routes
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Popular from "./pages/Popular";
+import TopRated from "./pages/TopRated";
+import Upcoming from "./pages/Upcoming";
+
+// Componenets
 import Navbar from "./components/Navbar";
-import Searchbar from "./components/Searchbar";
-import { getPopularMovies, getTopRatedMovies } from "./services/tmdb";
+
+// Services
 
 const App = () => {
   return (
     <div className="bg-zinc-950 text-white min-h-screen overflow-hidden ">
       <Navbar />
-      <Searchbar />
-      <Hero />
-      <div className="flex flex-col items-center ">
-        <MovieRow title="Popular" fetchFunction={getPopularMovies} />
-        <MovieRow title="Top Rated" fetchFunction={getTopRatedMovies} />{" "}
-        {/* teste */}
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/popular" element={<Popular />} />
+        <Route path="/top-rated" element={<TopRated />} />
+        <Route path="/upcoming" element={<Upcoming />} />
+      </Routes>
     </div>
   );
 };
