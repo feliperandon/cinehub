@@ -13,12 +13,20 @@ const api = axios.create({
   },
 });
 
-export const getPopularMovies = async () => {
-  const { data } = await api.get<TMDBResponse>("/movie/popular");
+export const getPopularMovies = async (page = 1) => {
+  const { data } = await api.get<TMDBResponse>("/movie/popular", {
+    params: {
+      page,
+    },
+  });
   return data.results;
 };
 
-export const getTopRatedMovies = async () => {
-  const { data } = await api.get<TMDBResponse>("/movie/top_rated");
+export const getTopRatedMovies = async (page = 1) => {
+  const { data } = await api.get<TMDBResponse>("/movie/top_rated", {
+    params: {
+      page,
+    },
+  });
   return data.results;
 };
