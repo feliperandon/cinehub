@@ -30,3 +30,12 @@ export const getTopRatedMovies = async (page = 1) => {
   });
   return data.results;
 };
+
+export const getUpcomingMovies = async (page = 1) => {
+  const { data } = await api.get<TMDBResponse>("/movie/upcoming", {
+    params: {
+      page,
+    },
+  });
+  return data.results;
+};
