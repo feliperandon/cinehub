@@ -28,6 +28,7 @@ export const getTopRatedMovies = async (page = 1) => {
       page,
     },
   });
+  console.log(data);
   return data.results;
 };
 

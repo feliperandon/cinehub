@@ -16,8 +16,16 @@ export function MovieModal({ movie, onClose }: MovieModalProps) {
           ✕
         </button>
 
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          className="rounded mb-2 max-h-100"
+        />
         <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
-        <p className="text-sm text-zinc-400 mb-2">{movie.release_date}</p>
+        <p className="text-sm text-zinc-400 mb-2">
+          Release Date: {movie.release_date}
+        </p>
+        <p className="text-sm">Average Vote: {movie.vote_average.toFixed(1)}</p>
       </div>
     </div>
   );

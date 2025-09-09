@@ -1,53 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-
 import { getTopRatedMovies } from "../services/tmdb";
 
 import MovieCard from "../components/MovieCard";
 
-import type { Movie } from "../types/movie";
+import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 
 const TopRated = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-
-  const loadMoreRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const newMovies = await getTopRatedMovies(page);
-        setMovies((prev) => [...prev, ...newMovies]);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [page]);
-
-  useEffect(() => {
-    if (loading) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setPage((prev) => prev + 1);
-        observer.unobserve(entries[0].target);
-      }
-    });
-
-    if (loadMoreRef.current) {
-      observer.observe(loadMoreRef.current);
-    }
-
-    return () => {
-      if (loadMoreRef.current) {
-        observer.unobserve(loadMoreRef.current);
-      }
-    };
-  }, [loading]);
+  const { movies, loading, loadMoreRef } = useInfiniteScroll(getTopRatedMovies);
 
   return (
     <div className="p-4">

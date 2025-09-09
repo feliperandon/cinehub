@@ -12,7 +12,7 @@ const MovieCard = ({
 }: Props) => {
   return (
     <div
-      className="p-3 rounded-lg shadow-md text-white min-w-[200px] mb-1.5 snap-start hover:opacity-60"
+      className="p-3 rounded-lg shadow-md text-white min-w-[200px] mb-1.5 snap-start hover:opacity-60 cursor-pointer"
       onClick={() => onClick?.(movie)}
     >
       <img
