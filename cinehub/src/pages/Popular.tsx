@@ -3,6 +3,7 @@ import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 
 import { getPopularMovies } from "../services/tmdb";
 
+import MovieCardSkeleton from "../components/MovieCardSkeleton";
 import MovieCard from "../components/MovieCard";
 import { MovieModal } from "../components/MovieModal";
 
@@ -16,6 +17,10 @@ const Popular = () => {
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Popular Movies</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {loading &&
+          Array.from({ length: 10 }).map((_, i) => (
+            <MovieCardSkeleton key={i} />
+          ))}
         {movies.map((movie) => (
           <MovieCard
             key={movie.id}
@@ -33,8 +38,6 @@ const Popular = () => {
       )}
 
       <div ref={loadMoreRef} className="h-10" />
-
-      {loading && <p className="text-center mt-4">Loading...</p>}
     </div>
   );
 };

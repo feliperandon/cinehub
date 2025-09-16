@@ -1,6 +1,7 @@
 import { getTopRatedMovies } from "../services/tmdb";
 
 import MovieCard from "../components/MovieCard";
+import MovieCardSkeleton from "../components/MovieCardSkeleton";
 
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 
@@ -11,6 +12,10 @@ const TopRated = () => {
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Top Rated</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {loading &&
+          Array.from({ length: 10 }).map((_, i) => (
+            <MovieCardSkeleton key={i} />
+          ))}
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
